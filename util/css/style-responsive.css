@@ -1,0 +1,151 @@
+/* Collapsed */
+
+/* phones... smaller than 768px */
+@media (max-width: 768px) {
+    
+    body {
+        padding-top: 74px;
+    }
+    
+    h1, h1 a{
+        font-size: 30px;
+    }
+    h2, h2 a{
+        font-size: 26px;
+    }
+    h3, h3 a{
+        font-size: 17px;
+    }
+    
+	
+	/* HEADER */
+	
+	.mainHeader .navbar .brandContainer {
+		display:inline-block;
+        padding: 3px 9px 0px;
+        margin:8px 0px;
+	}
+    
+    .mainHeader .navbar .brandContainer .brand {
+        font-size:48px;
+        line-height:40px;
+    }
+    
+    .mainHeader .navbar .brandContainer .slogan {
+        font-size:13px;
+    }
+    
+    .mainHeader .navbar-toggle{
+        padding: 18px 10px;
+        outline: 0;
+    }
+
+    .mainHeader .navbar-collapse
+    {
+        /*position: fixed;*/
+        margin: 0px;
+        padding: 0px;
+        left: 0;
+    }
+    
+	.mainHeader .navbar-nav{
+		float:none;
+	}
+
+	.mainHeader .navbar-nav ul {
+		float:left;
+	}
+	
+	.mainHeader .navbar-nav li {
+		float:none;
+		width:auto;
+		height:auto;
+		display:block;
+		border: none;
+		border-top: 1px solid #d3d3d3;
+		border-right: 1px solid #d3d3d3;
+		border-left: 1px solid #d3d3d3;
+	}
+	
+	.mainHeader .navbar-nav li:last-child {
+		border-right: 1px solid #d3d3d3;
+		border-bottom: 1px solid #d3d3d3;
+	}
+	
+	.mainHeader .navbar-nav .icon, .mainHeader .navbar-nav .content, 
+    .mainHeader .navbar-nav .main, .mainHeader .navbar-nav .sub {
+		position:relative;
+		line-height:inherit;
+		display:inline-block;
+		width: auto;
+		height: auto;
+		left: 0px;
+		top: 0px;
+		text-align: left;
+	}
+	
+	.mainHeader .navbar-nav li a:hover .icon,
+    .mainHeader .navbar-nav li a.active .icon {
+		margin-top:0px;
+	}
+	
+	.mainHeader .navbar-nav .icon {
+		width: 50px;
+		font-size: 26px;
+	}
+	
+	.mainHeader .navbar-nav .main {
+		font-size: 20px;
+	}
+	
+	.mainHeader .navbar-nav .sub {
+		display:none;
+	}
+		
+	.col-divider {
+		border-right: none;
+		border-bottom: 1px solid #d3d3d3;
+	}
+    
+    .service-box .service-box-heading span {
+        font-size: 18px;
+    }
+}
+
+/* Tablets ... between 768 and 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    body {
+        padding-top: 100px;
+    }
+    
+    .mainHeader .navbar .brandContainer {
+		margin: 15px 0;
+	}
+    
+	.mainHeader .navbar-nav li{
+		width: 100px;
+	}
+	
+	.mainHeader .navbar-nav .icon{
+		line-height: 65px;
+	}
+	
+	.mainHeader .navbar-nav .content{
+		position: absolute;
+		left: 0px;
+		width: 100%;
+		height: 50%;
+		top: 53%;
+	}
+	
+	.mainHeader .navbar-nav .sub{
+		display:none;
+	}
+	
+	.col-divider {
+		border-right: none;
+		border-bottom: 1px solid #d3d3d3;
+	}
+
+}
