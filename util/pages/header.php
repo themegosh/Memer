@@ -57,7 +57,7 @@ if (!isset($_SESSION['user'])){
 } else {
     $dynamicNav .= "
     <li>
-        <a href='/logout.php?logout=true' ".$activeNavRegister.">
+        <a href='/login.php?logout=true' ".$activeNavRegister.">
             <span class='icon'><i class='fa fa-user'></i></span>
             <div class='content'>
                 <h2 class='main'>Log Out</h2>
