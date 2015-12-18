@@ -51,7 +51,7 @@ $pageTitle = "Memer - Home";
 $otherHeaderIncludes = "";
 $activeNav = 'home';
 
-require_once (ABSPATH.PAGESPATH.'header.php');
+require_once (PAGESPATH.'header.php');
 /*************************************
 		END Header Data
 *************************************/
@@ -91,7 +91,7 @@ $otherFooterData = "
     <script src='".JSPATH."index.js' type='text/javascript'></script>
 ";
 
-require_once (ABSPATH.PAGESPATH.'footer.php');
+require_once (PAGESPATH.'footer.php');
 /*************************************
 		END Footer Data
 *************************************/

@@ -3,12 +3,11 @@
 //define the file paths for various things
 define( 'CSSPATH', '/util/css/' );
 define( 'JSPATH', '/util/js/' );
-define( 'CACHEPATH', '/util/cache/' );
+define( 'CACHEPATH', ABSPATH.'/util/cache/' );
 define( 'FONTPATH', '/util/font/' );
 define( 'IMAGEPATH', '/util/images/' );
-define( 'MEMEPATH', '/util/images/memes/' );
-define( 'LOGPATH', '/util/logs/' );
-define( 'PAGESPATH', '/util/pages/' );
+define( 'LOGPATH', ABSPATH.'/util/logs/' );
+define( 'PAGESPATH', ABSPATH.'/util/pages/' );
 
 /* MySQL Info */
 define('DB_NAME', 'memer_db');

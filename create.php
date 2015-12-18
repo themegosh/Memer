@@ -58,6 +58,12 @@ if (!isset($_SESSION['createImg'])){
             $validImage = false;
         }
         else {
+			if (file_exists($_FILES["uploadImg"]["tmp_name"])) {
+				$error .= "IT LIVES!";
+			} else {
+				$error .= "NOPE.";
+			}
+			
             if (move_uploaded_file($_FILES["uploadImg"]["tmp_name"], $fileName)) {
                 $result .= "<div class='alert alert-success'>Image Uploaded Successfully!</div>";
                 $_SESSION['createImg'] = $fileName;
@@ -106,11 +112,11 @@ if (isset($_SESSION['createImg'])) {  //editing an image, saving too
                     if ($user->addMeme($title, $topText, $bottomText, $_SESSION['createImg']))
                         $notification .= "<div class='alert alert-success'>Meme Saved.</div>";
                     else
-                        $notification = '<div class="alert alert-danger" role="alert"><strong>Error! Something seriously went wrong with saving.</strong></div>';
+                        $notification .= '<div class="alert alert-danger" role="alert"><strong>Error! Something seriously went wrong with saving.</strong></div>';
                 }
                 catch(PDOException $e) {
                     $successfulLogin = false;
-                    $notification = '<div class="alert alert-danger" role="alert"><strong>Error! Something seriously went wrong with saving.</strong><br/><br/> '.$e->getMessage().' </div>';
+                    $notification .= '<div class="alert alert-danger" role="alert"><strong>Error! Something seriously went wrong with saving.</strong><br/><br/> '.$e->getMessage().' </div>';
                 }
                 catch(exception $e) {
                     $successfulLogin = false;
@@ -167,7 +173,7 @@ if (isset($_SESSION['createImg'])) {  //editing an image, saving too
 $pageTitle = "Memer - Create a Meme";
 $activeNav = 'create';
 
-require (ABSPATH.PAGESPATH.'header.php');
+require (PAGESPATH.'header.php');
 /*************************************
 		END Header Data
 *************************************/
@@ -211,7 +217,7 @@ $otherFooterData = "
     
 ";
 
-require_once (ABSPATH.PAGESPATH.'footer.php');
+require_once (PAGESPATH.'footer.php');
 /*************************************
 		END Footer Data
 *************************************/

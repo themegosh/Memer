@@ -134,7 +134,7 @@ if (isset($_POST['contactSubmit']))
 $pageTitle = "Memer - Register";
 $activeNav = 'register';
 
-require_once (ABSPATH.PAGESPATH.'header.php');
+require_once (PAGESPATH.'header.php');
 /*************************************
 		END Header Data
 *************************************/
@@ -222,7 +222,7 @@ else
 
 $otherFooterData = "";
 
-require_once (ABSPATH.PAGESPATH.'footer.php');
+require_once (PAGESPATH.'footer.php');
 /*************************************
 		END Footer Data
 *************************************/

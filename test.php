@@ -20,7 +20,7 @@ require_once (ABSPATH . 'util/includes.php');
 $pageTitle = "Logically Intuitive";
 $otherHeaderIncludes = "";
 
-require_once (ABSPATH . PAGESPATH . 'header.php');
+require_once (PAGESPATH . 'header.php');
 /*************************************
 		END Header Data
 *************************************/
@@ -194,7 +194,7 @@ require_once (ABSPATH . PAGESPATH . 'header.php');
 		START Footer Data
 *************************************/
 
-require_once (ABSPATH . PAGESPATH . 'footer.php');
+require_once (PAGESPATH . 'footer.php');
 /*************************************
 		END Footer Data
 *************************************/

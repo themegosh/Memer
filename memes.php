@@ -101,7 +101,7 @@ catch (PDOException $e) {
 $pageTitle = "Memer - Browse Memes";
 $activeNav = 'search';
 
-require (ABSPATH.PAGESPATH.'header.php');
+require (PAGESPATH.'header.php');
 /*************************************
 		END Header Data
 *************************************/
@@ -149,7 +149,7 @@ require (ABSPATH.PAGESPATH.'header.php');
 
 $otherFooterData = "";
 
-require_once (ABSPATH.PAGESPATH.'footer.php');
+require_once (PAGESPATH.'footer.php');
 /*************************************
 		END Footer Data
 *************************************/
