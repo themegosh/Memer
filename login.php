@@ -12,34 +12,41 @@ $username = "";
 $password = "";
 $disable = "";
 
-if (isset($_SESSION['user'])){
-    $disable = "disabled";
+if (isset($_GET['logout']) && isset($_SESSION['user'])) { //trying to log out
+	session_destroy();
+	$result .= "<div class='alert alert-success'>Logged out successfully. Redirecting to login.</div>
+	 <meta http-equiv=refresh content='0;url=/login.php'>";
+}
+else if (isset($_SESSION['user'])) { //logged in
+	$disable = "disabled";
     $result .= '<div class="alert alert-danger" role="alert"><strong>You are already logged in, redirecting home in 5 sec.</div>'
             . '<meta http-equiv=refresh content="2;url=/index.php">';
 }
-
-if (isset($_POST['loginSubmit']))
-{
-    $username = $_POST['inputUsername'];
-    $password = $_POST['inputPassword'];
-    
-    try {
-        $newLogin = new User($username, $password);
-        //if login fails, it will throw a LoginException and never proceed beyond the above line (includes SQL errors)
-        //assume valid login
-        $successfulLogin = true;
-        $result .= "<div class='alert alert-success'>Logged in successfully.</div><meta http-equiv=refresh content='2;url=/index.php'>";
-        $username = "";
-    }
-    catch(PDOException $e) {
-        $successfulLogin = false;
-        $result = '<div class="alert alert-danger" role="alert"><strong>Error! Something seriously went wrong with sign in.</strong><br/><br/> '.$e->getMessage().' </div>';
-    }
-    catch(Exception $e) {
-        $successfulLogin = false;
-        $result .= '<div class="alert alert-danger" role="alert"><strong>Error!</strong><br/><br/> '. $e->getMessage() .' </div>';
-    }
-    $password = "";
+else { //not logged in
+	if (isset($_POST['loginSubmit']))
+	{
+		$username = $_POST['inputUsername'];
+		$password = $_POST['inputPassword'];
+		
+		try {
+			$newLogin = new User($username, $password);
+			//if login fails, it will throw a LoginException and never proceed beyond the above line (includes SQL errors)
+			//assume valid login
+			$successfulLogin = true;
+			$result .= "<div class='alert alert-success'>Logged in successfully.</div><meta http-equiv=refresh content='2;url=/index.php'>";
+			$username = "";
+			$disable = "disabled";
+		}
+		catch(PDOException $e) {
+			$successfulLogin = false;
+			$result = '<div class="alert alert-danger" role="alert"><strong>Error! Something seriously went wrong with sign in.</strong><br/><br/> '.$e->getMessage().' </div>';
+		}
+		catch(Exception $e) {
+			$successfulLogin = false;
+			$result .= '<div class="alert alert-danger" role="alert"><strong>Error!</strong><br/><br/> '. $e->getMessage() .' </div>';
+		}
+		$password = "";
+	}
 }
 
 
@@ -55,7 +62,7 @@ if (isset($_POST['loginSubmit']))
 $pageTitle = "Memer - Log In";
 $activeNav = 'login';
 
-require (ABSPATH.PAGESPATH.'header.php');
+require (PAGESPATH.'header.php');
 /*************************************
 		END Header Data
 *************************************/
@@ -88,7 +95,7 @@ require (ABSPATH.PAGESPATH.'header.php');
                 </div>
                 <div class="form-group">
                     <div class="text-center col-lg-12">
-                        <button name='loginSubmit' type="submit" class="btn btn-lg btn-primary" <?php echo $disable; ?>><i class="fa fa-rocket"></i> Log In</button>
+                        <button name='loginSubmit' type="submit" class="btn btn-lg btn-primary" <?php echo $disable; ?>><i class="fa fa-rocket" <?php echo $disable; ?>></i> Log In</button>
                     </div>
                 </div>
             </form>
@@ -105,7 +112,7 @@ require (ABSPATH.PAGESPATH.'header.php');
 
 $otherFooterData = "";
 
-require_once (ABSPATH.PAGESPATH.'footer.php');
+require_once (PAGESPATH.'footer.php');
 /*************************************
 		END Footer Data
 *************************************/
